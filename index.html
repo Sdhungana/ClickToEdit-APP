@@ -4,117 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Click To Edit</title>
-    <link rel="stylesheet" type="text/css" />
-    <style>
-      body {
-        background-color: #ff5924;
-      }
-      .main-container {
-        width: 1000px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      h1 {
-        text-align: center;
-      }
-      span {
-        font-size: 30px;
-        color: #fff;
-      }
-      .title,
-      .content {
-        border-radius: 20px;
-        width: 500px;
-        margin-bottom: 10px;
-        padding: 10px;
-        display: inline-block;
-      }
-      .title {
-        height: 80px;
-      }
-      .content {
-        height: 200px;
-      }
-
-      p {
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        border: none;
-        padding: 10px;
-        margin: 0;
-        outline-style: none;
-        resize: none;
-        font-size: 20px;
-        text-align: justify;
-      }
-      #elem {
-        width: 400px;
-        height: 100px;
-        display: inline-block;
-      }
-      .content {
-        font-size: 20px;
-        width: 100%;
-        border: 5px solid yellow;
-      }
-      textarea {
-        width: 100%;
-        height: 100%;
-        resize: none;
-        font-size: 15px;
-        outline-style: none;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="main.js" async>
   </head>
   <body>
     <h1>Click To Edit</h1>
     <div class="main-container"></div>
-
-    <script>
-      console.log('Javascript Tutorial');
-
-      const main = document.querySelector('.main-container');
-      //creating div element
-      let divElem = document.createElement('div');
-
-      // adding attributes
-      divElem.setAttribute('id', 'elem');
-
-      let val = localStorage.getItem('myText');
-      let text;
-      if (val == null) {
-        text = document.createTextNode(
-          'Hello, this is a div element. Click on  it to edit !!!'
-        );
-      } else {
-        text = document.createTextNode(val);
-      }
-
-      // appending the textnode to divElem
-      divElem.appendChild(text);
-
-      // appending the divElem to parent(main) container
-      main.appendChild(divElem);
-
-      // listining to click event
-      divElem.addEventListener('click', function () {
-        let noTextAreas = document.getElementsByTagName('textarea').length;
-        console.log(noTextAreas);
-        if (noTextAreas == 0) {
-          let html = `<textarea rows="10",cols="20" id="textarea">${divElem.innerHTML}</textarea>`;
-          divElem.innerHTML = html;
-        }
-
-        let textArea = document.getElementById('textarea');
-
-        // listening to blur event
-        textArea.addEventListener('blur', function () {
-          elem.innerHTML = textArea.value;
-          localStorage.setItem('myText', textArea.value);
-          //console.log(getValue);
-        });
-      });
-    </script>
   </body>
 </html>
